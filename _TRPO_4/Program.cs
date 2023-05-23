@@ -41,7 +41,7 @@
                 }
                 else
                 {
-                    Sum += ODZChecker(i) ? Func(i) : 0;
+                    Sum += Func(i);
                     Console.WriteLine($"Функция: {Func(i)} Сумма: {Sum}");
                 }
             }
