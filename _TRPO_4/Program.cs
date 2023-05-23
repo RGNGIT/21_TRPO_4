@@ -9,7 +9,7 @@
     {
         if (x == 2 || x == -2)
         {
-            Console.WriteLine("Выход за ОДЗ!");
+            Console.WriteLine("Выход за ОДЗ! Сумматор прерван.");
             return false;
         }
         return true;
@@ -34,8 +34,16 @@
             {
                 i = Math.Round(i, 1);
                 Console.WriteLine("При x = " + i);
-                Sum += ODZChecker(i) ? Func(i) : 0;
-                Console.WriteLine($"Функция: {Func(i)} Сумма: {Sum}");
+                bool odz = ODZChecker(i);
+                if (!odz)
+                {
+                    break;
+                }
+                else
+                {
+                    Sum += ODZChecker(i) ? Func(i) : 0;
+                    Console.WriteLine($"Функция: {Func(i)} Сумма: {Sum}");
+                }
             }
         }
         else
